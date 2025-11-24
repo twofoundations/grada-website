@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
 
           {/* Right Side - Navigation Links */}
-          <nav className="flex flex-col sm:flex-row sm:justify-end items-start sm:items-center gap-4 sm:gap-8">
+          <nav className="flex flex-col md:items-end items-start gap-4">
             <Link 
               href="/contact" 
               className="text-white/70 hover:text-white transition-colors"

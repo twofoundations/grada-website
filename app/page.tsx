@@ -157,6 +157,7 @@ export default function HomePage() {
       <Section 
         backgroundImage="/images/hero/concert.jpg"
         overlay={true}
+        className="!py-32 md:!py-40"
       >
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">

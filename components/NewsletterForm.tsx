@@ -37,9 +37,6 @@ export default function NewsletterForm() {
     <div className="max-w-md mx-auto">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-            Email address
-          </label>
           <input
             id="email"
             type="email"
@@ -51,7 +48,7 @@ export default function NewsletterForm() {
               }
             })}
             className="w-full px-4 py-3 border border-white/30 bg-white/10 text-white placeholder:text-white/60 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all"
-            placeholder="you@example.com"
+            placeholder="Enter your email"
             disabled={status === 'loading'}
           />
           {errors.email && (

@@ -12,30 +12,41 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Integration with email service (Mailchimp, ConvertKit, etc.)
-    // For now, we'll just log it and return success
-    // 
-    // Example Mailchimp integration:
-    // const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
-    // const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
-    // const MAILCHIMP_DC = MAILCHIMP_API_KEY?.split('-')[1];
-    //
-    // const response = await fetch(
-    //   `https://${MAILCHIMP_DC}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`,
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       Authorization: `apikey ${MAILCHIMP_API_KEY}`,
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //       email_address: email,
-    //       status: 'subscribed',
-    //     }),
-    //   }
-    // );
+    // Send email notification to contact@grada.com.au
+    // Using a simple email service (you can replace with SendGrid, Resend, etc.)
+    const emailBody = `
+      New newsletter signup:
+      Email: ${email}
+      Date: ${new Date().toISOString()}
+    `;
 
-    console.log('Newsletter signup:', email);
+    // For now, we'll use the Resend API (you'll need to add RESEND_API_KEY to .env.local)
+    // Alternatively, you can use nodemailer or any other email service
+    try {
+      const resendApiKey = process.env.RESEND_API_KEY;
+      
+      if (resendApiKey) {
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${resendApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: 'noreply@grada.com.au',
+            to: 'contact@grada.com.au',
+            subject: 'New Newsletter Signup',
+            text: emailBody,
+          }),
+        });
+      } else {
+        // Log to console if no API key configured
+        console.log('Newsletter signup (no email service configured):', email);
+      }
+    } catch (emailError) {
+      console.error('Error sending notification email:', emailError);
+      // Continue even if email fails - still return success to user
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {

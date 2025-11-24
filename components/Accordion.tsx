@@ -12,21 +12,23 @@ interface AccordionItemProps {
 
 function AccordionItem({ title, description, isOpen, onClick }: AccordionItemProps) {
   return (
-    <div className="border-b border-gray-200">
+    <div className="border-b border-gray-700">
       <button
         onClick={onClick}
-        className="w-full flex items-center justify-between py-5 text-left hover:bg-gray-50 transition-colors px-4"
+        className="w-full flex items-center justify-between py-5 text-left hover:bg-white/5 transition-colors px-4"
       >
-        <span className="text-lg font-medium text-gray-900">{title}</span>
+        <span className="text-lg font-medium text-white">{title}</span>
         <ChevronDownIcon 
-          className={`w-5 h-5 text-gray-500 transition-transform ${
+          className={`w-5 h-5 text-gray-400 transition-transform ${
             isOpen ? 'transform rotate-180' : ''
           }`}
         />
       </button>
       {isOpen && (
-        <div className="px-4 pb-5 text-gray-600">
-          {description}
+        <div className="px-4 pb-5">
+          <div className="max-w-[70%] text-white/90">
+            {description}
+          </div>
         </div>
       )}
     </div>
@@ -45,7 +47,7 @@ export default function Accordion({ items }: AccordionProps) {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <div className="border-t border-gray-200">
+    <div className="border-t border-gray-700">
       {items.map((item) => (
         <AccordionItem
           key={item.id}

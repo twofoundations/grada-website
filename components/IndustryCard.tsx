@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface IndustryCardProps {
   title: string;
   description: string;
@@ -8,9 +10,11 @@ export default function IndustryCard({ title, description, image }: IndustryCard
   return (
     <div className="relative overflow-hidden rounded-lg group cursor-pointer h-80">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-        style={{ backgroundImage: `url(${image})` }}
+      <Image 
+        src={image}
+        alt={title}
+        fill
+        className="object-cover transition-transform duration-300 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       

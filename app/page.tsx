@@ -48,12 +48,15 @@ export default function HomePage() {
       </Section>
 
       {/* Engagement Benefits */}
-      <Section background="white">
+      <Section 
+        backgroundImage="/images/hero/happy-customers.jpg"
+        overlay={true}
+      >
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Engagement benefits
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-white/90">
             A better way to engage transformation and strategy consulting talent
           </p>
         </div>
@@ -75,9 +78,12 @@ export default function HomePage() {
       </Section>
 
       {/* Testimonials */}
-      <Section background="white">
+      <Section 
+        backgroundImage="/images/testimonials/background.jpg"
+        overlay={true}
+      >
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             What people are saying
           </h2>
         </div>
@@ -121,12 +127,15 @@ export default function HomePage() {
       </Section>
 
       {/* Newsletter Signup */}
-      <Section background="gray">
+      <Section 
+        backgroundImage="/images/hero/concert.jpg"
+        overlay={true}
+      >
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Keep me updated
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Subscribe to receive insights and updates on customer strategy
           </p>
           <NewsletterForm />

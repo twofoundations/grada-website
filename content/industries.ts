@@ -40,7 +40,7 @@ export const industries: Industry[] = [
     id: 'financial-services',
     title: 'Financial services',
     description: 'Enhancing the digital experience, tailoring financial solutions and experiences to customer needs, fund member loyalty and retention, advisor and broker experience delivery, customer onboarding, education & financial literacy, high care customer experiences, Integrating customer risk into material risk governance.',
-    image: '/images/industries/financial.jpg'
+    image: '/images/industries/financial-services.jpg'
   },
   {
     id: 'utilities',

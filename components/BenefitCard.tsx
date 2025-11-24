@@ -1,11 +1,4 @@
-import { 
-  ClockIcon, 
-  PlayIcon, 
-  ChartBarIcon, 
-  UserIcon, 
-  BoltIcon,
-  CheckCircleIcon 
-} from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 interface BenefitCardProps {
   title: string;
@@ -13,25 +6,20 @@ interface BenefitCardProps {
   icon: string;
 }
 
-const iconMap = {
-  clock: ClockIcon,
-  play: PlayIcon,
-  chart: ChartBarIcon,
-  user: UserIcon,
-  bolt: BoltIcon,
-  check: CheckCircleIcon,
-};
-
 export default function BenefitCard({ title, description, icon }: BenefitCardProps) {
-  const IconComponent = iconMap[icon as keyof typeof iconMap] || CheckCircleIcon;
-
   return (
-    <div className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-gray-50 transition-colors">
-      <div className="mb-4">
-        <IconComponent className="w-12 h-12 text-gray-900" />
+    <div className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-white/10 transition-colors">
+      <div className="mb-4 w-16 h-16 relative bg-white rounded-full p-3">
+        <Image 
+          src={icon} 
+          alt={title}
+          width={64}
+          height={64}
+          className="object-contain"
+        />
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+      <p className="text-white/90">{description}</p>
     </div>
   );
 }

@@ -3,13 +3,17 @@ interface SectionProps {
   className?: string;
   id?: string;
   background?: 'white' | 'gray' | 'dark';
+  backgroundImage?: string;
+  overlay?: boolean;
 }
 
 export default function Section({ 
   children, 
   className = '', 
   id,
-  background = 'white' 
+  background = 'white',
+  backgroundImage,
+  overlay = false
 }: SectionProps) {
   const bgClasses = {
     white: 'bg-white',
@@ -20,9 +24,21 @@ export default function Section({
   return (
     <section 
       id={id}
-      className={`py-16 md:py-24 ${bgClasses[background]} ${className}`}
+      className={`py-16 md:py-24 relative ${!backgroundImage ? bgClasses[background] : ''} ${className}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background Image */}
+      {backgroundImage && (
+        <>
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+          {overlay && <div className="absolute inset-0 bg-black/50" />}
+        </>
+      )}
+      
+      {/* Content */}
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${backgroundImage ? 'relative z-10' : ''}`}>
         {children}
       </div>
     </section>

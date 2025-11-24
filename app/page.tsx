@@ -143,7 +143,7 @@ export default function HomePage() {
       {/* Book a Call */}
       <Section background="white" id="book">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
             Book a call
           </h2>
           <p className="text-xl text-gray-600">

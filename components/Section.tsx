@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface SectionProps {
   children: React.ReactNode;
@@ -23,16 +23,23 @@ export default function Section({
   overlay = false,
   parallax = false
 }: SectionProps) {
-  const [scrollY, setScrollY] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!parallax) return;
+    if (!parallax || !sectionRef.current) return;
 
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const rect = sectionRef.current?.getBoundingClientRect();
+      if (rect) {
+        // Calculate parallax based on section's position relative to viewport
+        const scrollProgress = Math.max(0, window.innerHeight - rect.top);
+        setOffset(scrollProgress * 0.1);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, [parallax]);
 
@@ -46,6 +53,7 @@ export default function Section({
 
   return (
     <section 
+      ref={sectionRef}
       id={id}
       className={`py-16 md:py-24 relative ${!backgroundImage && !backgroundColor ? bgClasses[background] : ''} ${parallax ? 'overflow-hidden' : ''} ${className}`}
       style={bgStyle}
@@ -58,7 +66,7 @@ export default function Section({
             style={{ 
               backgroundImage: `url(${backgroundImage})`,
               ...(parallax ? {
-                transform: `translateY(${scrollY * 0.1}px)`,
+                transform: `translateY(-${offset}px)`,
                 height: '115%',
                 top: '-10%'
               } : {})

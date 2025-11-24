@@ -19,7 +19,7 @@ export default function ClientLogos() {
   }, []);
 
   return (
-    <div className="bg-white py-8">
+    <div className="bg-black py-8">
       {/* Elfsight Logo Showcase | Grada client logos */}
       <div 
         className="elfsight-app-e70dadb1-9f0c-4fb4-ab13-75f015b3f1ac" 

@@ -1,15 +1,31 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-end justify-center pt-20 pb-16 md:pb-24">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative h-[70vh] md:h-[75vh] flex items-end justify-center pt-20 pb-16 md:pb-24 overflow-hidden">
+      {/* Background Image with Parallax */}
+      <div className="absolute inset-0 z-0" style={{ top: `-${scrollY * 0.5}px` }}>
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url(/images/hero/customers-on-bus.jpg)',
-            backgroundPosition: '50.53% 34.4%'
+            backgroundPosition: '50.53% 34.4%',
+            height: '120%',
+            width: '100%'
           }}
         />
         <div className="absolute inset-0 bg-black/40" /> {/* Overlay */}

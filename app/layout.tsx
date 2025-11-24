@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Asap, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
 
-const inter = Inter({ subsets: ["latin"] });
+const asap = Asap({ 
+  subsets: ["latin"],
+  variable: '--font-asap',
+  display: 'swap',
+});
+
+const openSans = Open_Sans({ 
+  subsets: ["latin"],
+  variable: '--font-open-sans',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Customer Insight & Strategy | GRADA Sydney",
@@ -52,7 +62,7 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className={inter.className}>
+      <body className={`${openSans.variable} ${asap.variable} font-sans`}>
         <Header />
         {children}
         <Footer />

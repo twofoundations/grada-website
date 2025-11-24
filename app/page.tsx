@@ -6,6 +6,7 @@ import TestimonialCard from '@/components/TestimonialCard';
 import IndustryCard from '@/components/IndustryCard';
 import CalEmbed from '@/components/CalEmbed';
 import NewsletterForm from '@/components/NewsletterForm';
+import ClientLogos from '@/components/ClientLogos';
 import { benefits } from '@/content/benefits';
 import { services } from '@/content/services';
 import { testimonials } from '@/content/testimonials';
@@ -20,32 +21,62 @@ export default function HomePage() {
       {/* About Section 1 - Roger Martin Quote */}
       <Section background="white">
         <div className="max-w-4xl mx-auto text-center">
-          <blockquote className="text-2xl md:text-3xl font-light italic text-gray-800 leading-relaxed">
-            "The fundamental purpose of any business — is to create more value for customers than it costs to do so"
-          </blockquote>
-          <p className="mt-4 text-gray-600">— Roger Martin</p>
+          <p className="text-lg md:text-xl font-bold text-gray-900 mb-4">
+            Every successful product or service derives from insights about customers.
+          </p>
+          <p className="text-base text-gray-600">Roger L Martin</p>
         </div>
       </Section>
 
       {/* About Section 2 - Detailed Description */}
       <Section background="gray">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            Customer insight & strategy
-          </h2>
-          <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+          <div className="space-y-6 text-gray-700 text-base leading-relaxed">
             <p>
-              Creating customer value demands empathy, creativity, and hard data. It's often easier and faster to add features or fiddle with pricing to grow revenue. But do your customers actually value these changes? Are they getting more value than they pay? Do they feel that you truly understand them?
+              If you don't understand what drives value and for which customers, how will you know what choices to make and determine precisely where you should invest?
             </p>
             <p>
-              Most businesses don't have a clear view of what customers need and value most. This makes customer strategy little more than a guess. How can you develop a compelling strategy to deliver value when you don't even know what your customers value?
+              What consumers truly value can be challenging to pin down and psychologically complicated. How can leadership teams actively manage value or devise ways to deliver more of it, whether functional (reducing cost, risk or effort), emotional (reducing stress, increasing fun, motivation or nostalgia) or social (belonging or status)?
             </p>
             <p>
-              Through a structured, evidence-based approach you can gain a complete picture of what customers actually value, what they'll pay for, where you can differentiate and outcompete. This transforms customer strategy from guesswork into systematic creation of customer value.
+              The task is made more difficult by customer experts who deliver un-actionable insights and preach that delightful and wow experiences are the way to success with complete disregard for the probabilistic behaviour of customers or understanding the relevance of customer experience in a particular category.
+            </p>
+            <p>
+              And if pinpointing what customers value wasn't hard enough, then orchestrating the delivery of that value from the backline to the frontline of the enterprise can be challenging, to say the least, considering the sheer breadth of engagement required, multiple business units, multiple channels, service partners, technology platforms and internal and external data quality.
             </p>
           </div>
         </div>
       </Section>
+
+      {/* Peter Drucker Quote */}
+      <Section background="white">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-lg md:text-xl font-bold text-gray-900 mb-4">
+            The value of a product or service is not what you put into it, it's what the customer gets out of it.
+          </p>
+          <p className="text-base text-gray-600">Peter Drucker</p>
+        </div>
+      </Section>
+
+      {/* Final About Section */}
+      <Section background="gray">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6 text-gray-700 text-base leading-relaxed">
+            <p>
+              To keep customers loyal and attract new ones, you need to remain relevant and superior. Companies must continually update and adapt their strategies and business models to respond to the explosion of choice that ever more sophisticated consumers face.
+            </p>
+            <p>
+              Grada's ambition is to deliver more value to its clients. To simplify engagement through an on-demand model, with faster output of actionable insights, strategic choices, and next-level support for customer-focused leaders.
+            </p>
+            <p>
+              By partnering with Grada, you gain access to a wealth of expertise in customer insight and strategy design, all while leveraging our simplified engagement model for ongoing, scalable support tailored to your organisation's unique needs.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* Client Logos */}
+      <ClientLogos />
 
       {/* Engagement Benefits */}
       <Section 
@@ -141,6 +172,6 @@ export default function HomePage() {
           <NewsletterForm />
         </div>
       </Section>
-    </main>
+      </main>
   );
 }

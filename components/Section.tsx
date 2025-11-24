@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
@@ -6,6 +10,7 @@ interface SectionProps {
   backgroundColor?: string;
   backgroundImage?: string;
   overlay?: boolean;
+  parallax?: boolean;
 }
 
 export default function Section({ 
@@ -15,8 +20,22 @@ export default function Section({
   background = 'white',
   backgroundColor,
   backgroundImage,
-  overlay = false
+  overlay = false,
+  parallax = false
 }: SectionProps) {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    if (!parallax) return;
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [parallax]);
+
   const bgClasses = {
     white: 'bg-white',
     gray: 'bg-gray-50',
@@ -28,7 +47,7 @@ export default function Section({
   return (
     <section 
       id={id}
-      className={`py-16 md:py-24 relative ${!backgroundImage && !backgroundColor ? bgClasses[background] : ''} ${className}`}
+      className={`py-16 md:py-24 relative ${!backgroundImage && !backgroundColor ? bgClasses[background] : ''} ${parallax ? 'overflow-hidden' : ''} ${className}`}
       style={bgStyle}
     >
       {/* Background Image */}
@@ -36,7 +55,13 @@ export default function Section({
         <>
           <div 
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
+            style={{ 
+              backgroundImage: `url(${backgroundImage})`,
+              ...(parallax ? {
+                top: `-${scrollY * 0.3}px`,
+                height: '120%'
+              } : {})
+            }}
           />
           {overlay && <div className="absolute inset-0 bg-black/50" />}
         </>

@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   description: "Expert customer strategy consulting in Sydney. Transform your business with actionable customer insights. Fast, flexible engagement designed to make consulting accessible.",
   keywords: ["customer insight", "customer strategy", "business consulting Sydney", "customer experience", "strategy consulting", "customer research"],
   authors: [{ name: "GRADA" }],
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     title: "GRADA - Customer Insight & Strategy",
     description: "Expert customer strategy consulting in Sydney. Transform your business with actionable customer insights.",

@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section className="relative h-[70vh] md:h-[75vh] flex items-end justify-center pt-20 pb-16 md:pb-24 overflow-hidden">
       {/* Background Image with Parallax */}
-      <div className="absolute inset-0 z-0" style={{ top: `-${scrollY * 0.5}px` }}>
+      <div className="absolute inset-0 z-0" style={{ top: `-${scrollY * 0.3}px` }}>
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{

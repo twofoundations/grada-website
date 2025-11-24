@@ -15,6 +15,7 @@ import { industries } from '@/content/industries';
 export default function HomePage() {
   return (
     <main>
+      {/* Homepage content */}
       {/* Hero Section */}
       <Hero />
 

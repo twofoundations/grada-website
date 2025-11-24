@@ -20,15 +20,9 @@ export default function HomePage() {
 
       {/* About Section 1 - Roger Martin Quote */}
       <Section background="white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-4">
-              <p className="text-lg font-semibold text-gray-900 leading-relaxed">
-                Every successful product or service derives from insights about customers.
-              </p>
-              <p className="text-base text-gray-700">Roger L Martin</p>
-            </div>
-            <div className="space-y-6 text-base text-gray-700 leading-relaxed">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-[70%_30%] gap-8 items-start">
+            <div className="space-y-6 text-base text-gray-700 leading-relaxed text-left">
               <p>
                 If you don't understand what drives value and for which customers, how will you know what choices to make and determine precisely where you should invest?
               </p>
@@ -42,21 +36,21 @@ export default function HomePage() {
                 And if pinpointing what customers value wasn't hard enough, then orchestrating the delivery of that value from the backline to the frontline of the enterprise can be challenging, to say the least, considering the sheer breadth of engagement required, multiple business units, multiple channels, service partners, technology platforms and internal and external data quality.
               </p>
             </div>
+            <div className="space-y-4 text-left">
+              <p className="text-lg font-semibold text-gray-900 leading-relaxed">
+                Every successful product or service derives from insights about customers.
+              </p>
+              <p className="text-base text-gray-700">Roger L Martin</p>
+            </div>
           </div>
         </div>
       </Section>
 
       {/* About Section 2 - Peter Drucker Quote */}
       <Section background="white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-4">
-              <p className="text-lg font-semibold text-gray-900 leading-relaxed">
-                The value of a product or service is not what you put into it, it's what the customer gets out of it.
-              </p>
-              <p className="text-base text-gray-700">Peter Drucker</p>
-            </div>
-            <div className="space-y-6 text-base text-gray-700 leading-relaxed">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-[70%_30%] gap-8 items-start">
+            <div className="space-y-6 text-base text-gray-700 leading-relaxed text-left">
               <p>
                 To keep customers loyal and attract new ones, you need to remain relevant and superior. Companies must continually update and adapt their strategies and business models to respond to the explosion of choice that ever more sophisticated consumers face.
               </p>
@@ -66,6 +60,12 @@ export default function HomePage() {
               <p>
                 By partnering with Grada, you gain access to a wealth of expertise in customer insight and strategy design, all while leveraging our simplified engagement model for ongoing, scalable support tailored to your organisation's unique needs.
               </p>
+            </div>
+            <div className="space-y-4 text-left">
+              <p className="text-lg font-semibold text-gray-900 leading-relaxed">
+                The value of a product or service is not what you put into it, it's what the customer gets out of it.
+              </p>
+              <p className="text-base text-gray-700">Peter Drucker</p>
             </div>
           </div>
         </div>

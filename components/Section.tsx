@@ -58,8 +58,8 @@ export default function Section({
             style={{ 
               backgroundImage: `url(${backgroundImage})`,
               ...(parallax ? {
-                top: `-${scrollY * 0.3}px`,
-                height: '120%'
+                transform: `translateY(${scrollY * 0.1}px)`,
+                height: '110%'
               } : {})
             }}
           />

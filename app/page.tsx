@@ -84,7 +84,7 @@ export default function HomePage() {
             Engagement benefits
           </h2>
           <p className="text-xl text-white/90">
-            A better way to engage transformation and strategy consulting talent
+            Simplified, on-demand access to senior customer insight and strategy expertise
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

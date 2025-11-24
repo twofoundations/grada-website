@@ -5,7 +5,7 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ quote, author }: TestimonialCardProps) {
   return (
-    <div className="bg-white/90 p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+    <div className="bg-white/80 p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="mb-4">
         <svg 
           className="w-8 h-8 text-gray-400" 

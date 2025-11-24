@@ -29,31 +29,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-asap), sans-serif;
 }
 
-/* Modal animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/* 3D Card Flip Utilities */
+.perspective {
+  perspective: 1000px;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.preserve-3d {
+  transform-style: preserve-3d;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.2s ease-out;
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-.animate-slideUp {
-  animation: slideUp 0.3s ease-out;
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }

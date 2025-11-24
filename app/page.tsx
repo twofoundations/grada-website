@@ -19,7 +19,7 @@ export default function HomePage() {
       <Hero />
 
       {/* About Section 1 - Roger Martin Quote */}
-      <Section background="white">
+      <Section background="white" className="!pb-8 md:!pb-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-[70%_30%] gap-8 items-start">
             <div className="space-y-6 text-base text-gray-700 leading-relaxed text-left">
@@ -47,7 +47,7 @@ export default function HomePage() {
       </Section>
 
       {/* About Section 2 - Peter Drucker Quote */}
-      <Section background="white">
+      <Section background="white" className="!pt-8 md:!pt-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-[70%_30%] gap-8 items-start">
             <div className="space-y-6 text-base text-gray-700 leading-relaxed text-left">

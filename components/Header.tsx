@@ -34,15 +34,15 @@ export default function Header() {
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/logo.png"
               alt="GRADA customer insight and strategy"
-              width={132}
-              height={44}
-              className="h-9 w-auto"
+              width={150}
+              height={50}
+              className="h-11 md:h-12 w-auto"
               priority
             />
           </Link>

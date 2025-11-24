@@ -141,7 +141,7 @@ export default function HomePage() {
       </Section>
 
       {/* Book a Call */}
-      <Section background="white" id="book">
+      <Section backgroundColor="#E0E0DB" id="book">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
             Book a call

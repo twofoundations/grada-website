@@ -32,8 +32,9 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
 
   return (
     <div 
-      className="fixed top-0 left-0 right-0 bottom-0 z-[100] bg-black/70 backdrop-blur-sm animate-fadeIn"
+      className="fixed top-0 left-0 right-0 bottom-0 z-[9999] bg-black/70 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
+      style={{ position: 'fixed' }}
     >
       <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center p-4 overflow-y-auto">
         <div 

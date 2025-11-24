@@ -32,6 +32,7 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
+    <>
     <header className={`fixed top-0 left-0 right-0 z-50 bg-black transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
@@ -104,10 +105,11 @@ export default function Header() {
           </div>
         )}
       </nav>
-
-      {/* Contact Modal */}
-      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </header>
+    
+    {/* Contact Modal - Outside header to avoid z-index stacking issues */}
+    <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
+    </>
   );
 }
 

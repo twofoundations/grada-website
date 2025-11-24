@@ -33,12 +33,28 @@ export default function Section({
       const rect = sectionRef.current?.getBoundingClientRect();
       if (rect) {
         // Calculate parallax based on section's position relative to viewport
-        const scrollProgress = Math.max(0, window.innerHeight - rect.top);
-        setOffset(scrollProgress * 0.1);
+        // Only move when section is visible, and limit movement to prevent black space
+        const viewportHeight = window.innerHeight;
+        const sectionTop = rect.top;
+        const sectionHeight = rect.height;
+        
+        // Calculate how much of the section is visible
+        const visibleTop = Math.max(0, viewportHeight - sectionTop);
+        const visibleBottom = Math.max(0, viewportHeight - (sectionTop + sectionHeight));
+        const visibleAmount = visibleTop - visibleBottom;
+        
+        // Only apply parallax when section is in viewport, and limit to prevent overflow
+        // Use smaller multiplier on mobile (0.05) vs desktop (0.08)
+        const isMobile = window.innerWidth < 768;
+        const parallaxSpeed = isMobile ? 0.05 : 0.08;
+        const maxOffset = sectionHeight * 0.15; // Limit max movement to 15% of section height
+        
+        const calculatedOffset = Math.min(visibleAmount * parallaxSpeed, maxOffset);
+        setOffset(calculatedOffset);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, [parallax]);
@@ -62,17 +78,20 @@ export default function Section({
       {backgroundImage && (
         <>
           <div 
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ 
               backgroundImage: `url(${backgroundImage})`,
               ...(parallax ? {
                 transform: `translateY(-${offset}px)`,
-                height: '115%',
-                top: '-10%'
-              } : {})
+                height: '120%',
+                top: '-10%',
+                minHeight: '100%' // Ensure it always covers the section
+              } : {
+                minHeight: '100%' // Ensure it always covers the section
+              })
             }}
           />
-          {overlay && <div className="absolute inset-0 bg-black/50" />}
+          {overlay && <div className="absolute inset-0 bg-black/50 z-[1]" />}
         </>
       )}
       

@@ -5,7 +5,7 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ quote, author }: TestimonialCardProps) {
   return (
-    <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+    <div className="bg-white/90 p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="mb-4">
         <svg 
           className="w-8 h-8 text-gray-400" 
@@ -16,7 +16,7 @@ export default function TestimonialCard({ quote, author }: TestimonialCardProps)
         </svg>
       </div>
       <p className="text-gray-700 mb-4 italic text-lg">
-        "{quote}"
+        {quote}
       </p>
       <p className="text-gray-500 font-medium">
         — {author}
